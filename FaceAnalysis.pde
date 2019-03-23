@@ -26,10 +26,8 @@ import javax.imageio.stream.*;
 class FaceAnalysis extends Thread {
   
   // Don't forget to fill in your API key!
-  // free 1ca9b63916014bd5ac3b552a3a9b4243 //https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect
-  // paga 7a8d68406c0f4405bcaf581756807e1d //https://northeurope.api.cognitive.microsoft.com/face/v1.0/detect
-  String subscriptionKey = "7a8d68406c0f4405bcaf581756807e1d";
-  String uriBase = "https://northeurope.api.cognitive.microsoft.com/face/v1.0/detect";
+  String subscriptionKey = "1ca9b63916014bd5ac3b552a3a9b4243"; // your free key here (7 days trial)
+  String uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect"; // check your location endpoint!!!
 
 
   
