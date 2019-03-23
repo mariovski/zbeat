@@ -1,10 +1,7 @@
-# zbeat
-Video caller assistant for the blind and visual unpaired people
-Alexandra Costa , Caio Santana, Cristiana Oliveira, Mário Vairinhos 
+This project was brainstormed and developed in 48h in the [Pixels Camp](https://pixels.camp)
 
-many thanks to António & Francisco (gitup tweeks)
-
-many thanks to Jeff Thompson (demo code for azure)
+# ZBeat
+ZBeat is a video caller assistant for the blind and visual unpaired people
 
 ZBeat uses Microsoft’s Azure for a video assistance tool that helps blind people to understand other people’s mood in a videocall. It functions as an assistant(bot), which analyses the facial expression of the person talking, and translates it to a song that corresponds to a certain emotion.
 
@@ -23,4 +20,13 @@ emotions avalailable:
 
 ### Download
 Use zbeat now:
-[zbeat v1.0 - Windows 64 Version](https://www.dropbox.com/s/v0lgfxku3peakxi/application.windows64.rar?dl=0)
+[zbeat v1.0 - Windows 64 Version](https://tinyurl.com/y5dpygj2)
+
+
+# Team
+
+[Alexandra Costa](https://github.com/AlexCC97), [Caio Santana](https://github.com/caiosantanaj), [Cristiana Oliveira](https://github.com/VOLIVEIRA04), [Mário Vairinhos](https://github.com/mariovski)
+
+Many thanks to [António Santos](https://github.com/antoniojps) & [Francisco Regalado](https://github.com/fsfregalado) (Markdown tweeks)
+
+Many thanks to [Jeff Thompson](https://github.com/jeffThompson) (demo code for azure)
