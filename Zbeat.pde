@@ -25,7 +25,7 @@ boolean cameraInitDone = false;
 
 // Face API – free: Up to 20 transactions per minute (so interval 3000ms)
 // Face API - standard: Up to 10 transactions per second (so interval 100ms)
-int minimalAzureRequestInterval = 3000; 
+int minimalAzureRequestInterval = 1000; 
 
 boolean isAzureRequestRunning = false;
 int lastAzureRequestTime = 0; 
@@ -141,9 +141,11 @@ void dalhe(int index){
   emotionAudioOut=emotionAudioIn;
   emotionAudioIn=index;
   println("----------------" + emotionAudioIn );
-  soundEmotions[emotionAudioOut].play();
+
   soundEmotions[emotionAudioOut].shiftGain(50, -100, 3000);
+  soundEmotions[emotionAudioIn].rewind();
   soundEmotions[emotionAudioIn].play();
+  delay(10);
   soundEmotions[emotionAudioIn].shiftGain(-100, 50, 3000);
 }
 
@@ -182,11 +184,13 @@ void keyPressed() {
 void startFaceAnalysis() {
   if(isAzureRequestRunning == false) {
     if((millis() - minimalAzureRequestInterval) > lastAzureRequestTime) {
+      //println(millis());
       screenshot();
       webcamPicture = screenshot.get();
       onScreenText = "The request is sent to Azure.";
       isAzureRequestRunning = true;
       azureFaceAnalysis = new FaceAnalysis(webcamPicture);
+      lastAzureRequestTime=millis();
     }
     else {
       onScreenText = "The request is sent to fast based on transactions per minute (free version every 3 seconds)";  
@@ -308,66 +312,3 @@ void initCamera(){
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-void initCamera() { 
-  
-  // make sure the draw runs one time to display the "waiting" text
-  if(frameCount<2) return;
-  
-   String[] cameras = Capture.list();
-  
-
-      
-   if (cameras.length == 0) {
-    println("There are no cameras available for capture.");
-    exit();
-   } 
-   else {
-    println("Available cameras:");
-    printArray(cameras);
-
-    // The camera can be initialized directly using an element
-    // from the array returned by list():
-    cam = new Capture(this, cameras[5]);
-    
-    
-    // Start capturing the images from the camera
-    cam.start();
-    
-    delay(2000);
-    
-    while(cam.available() != true) {
-      delay(1);//println("waiting for camera !!!");
-    }
-    
-    // read once to get correct width, height
-    cam.read();
-    
-
-    
-    // create the overlay PGraphics here
-    // so it's exactly the   size of the camera
-    faceDataOverlay = createGraphics(cam.width,cam.height);
-    faceDataOverlay.beginDraw();
-    faceDataOverlay.clear();
-    faceDataOverlay.endDraw();  
-    
-    cameraInitDone = true;
-    
-    onScreenText = "";
-
-  }
-   
-}
-*/
